@@ -23,11 +23,11 @@ jobs:
     - name: Delete existing banch
       env:
         SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-      run: git push git@github.com:s0/git-publish-subdir-action-tests.git +:refs/heads/branch-a
+      run: git push git@github.com:pavelkrulec-ext96968/git-publish-subdir-action-tests.git +:refs/heads/branch-a
     - name: Deploy
       uses: ./
       env:
-        REPO: git@github.com:s0/git-publish-subdir-action-tests.git
+        REPO: git@github.com:pavelkrulec-ext96968/git-publish-subdir-action-tests.git
         BRANCH: branch-a
         FOLDER: dummy
         SSH_PRIVATE_KEY: ${{ secrets.TESTING_PRIVATE_KEY }}
@@ -44,7 +44,7 @@ jobs:
     - name: Deploy
       uses: ./
       env:
-        REPO: git@github.com:s0/git-publish-subdir-action-tests.git
+        REPO: git@github.com:pavelkrulec-ext96968/git-publish-subdir-action-tests.git
         BRANCH: branch-b
         FOLDER: dummy
         SSH_PRIVATE_KEY: ${{ secrets.TESTING_PRIVATE_KEY }}
@@ -61,7 +61,7 @@ jobs:
     - name: Deploy
       uses: ./
       env:
-        REPO: git@github.com:s0/git-publish-subdir-action-tests.git
+        REPO: git@github.com:pavelkrulec-ext96968/git-publish-subdir-action-tests.git
         BRANCH: branch-c
         FOLDER: dummy
         SSH_PRIVATE_KEY: ${{ secrets.TESTING_PRIVATE_KEY }}
@@ -81,14 +81,14 @@ jobs:
     - name: Deploy
       uses: ./
       env:
-        REPO: git@github.com:s0/git-publish-subdir-action-tests.git
+        REPO: git@github.com:pavelkrulec-ext96968/git-publish-subdir-action-tests.git
         BRANCH: branch-d
         FOLDER: dummy1
         SSH_PRIVATE_KEY: ${{ secrets.TESTING_PRIVATE_KEY }}
     - name: Deploy
       uses: ./
       env:
-        REPO: git@github.com:s0/git-publish-subdir-action-tests.git
+        REPO: git@github.com:pavelkrulec-ext96968/git-publish-subdir-action-tests.git
         BRANCH: branch-d
         FOLDER: dummy2
         SSH_PRIVATE_KEY: ${{ secrets.TESTING_PRIVATE_KEY }}
