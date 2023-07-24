@@ -1,8 +1,6 @@
 name: Scheduled tests
 on:
-  schedule:
-    - cron:  '0 10 * * *'
-
+  workflow_dispatch:
 jobs:
   deploy-ssh-no-branch:
     name: Test deploying to a new branch
@@ -33,6 +31,7 @@ jobs:
         BRANCH: branch-a
         FOLDER: dummy
         SSH_PRIVATE_KEY: ${{ secrets.TESTING_PRIVATE_KEY }}
+    - run: cat ~/.ssh/known_hosts
   deploy-ssh-existing-branch:
     name: Test deploying to a pre-existing branch
     runs-on: ubuntu-latest
@@ -49,6 +48,7 @@ jobs:
         BRANCH: branch-b
         FOLDER: dummy
         SSH_PRIVATE_KEY: ${{ secrets.TESTING_PRIVATE_KEY }}
+    - run: cat ~/.ssh/known_hosts
   deploy-ssh-existing-branch-known_hosts:
     name: Test deploying to a pre-existing branch (with KNOWN_HOSTS_FILE)
     runs-on: ubuntu-latest
@@ -66,6 +66,7 @@ jobs:
         FOLDER: dummy
         SSH_PRIVATE_KEY: ${{ secrets.TESTING_PRIVATE_KEY }}
         KNOWN_HOSTS_FILE: action/resources/known_hosts_github.com
+    - run: cat ~/.ssh/known_hosts
   deploy-ssh-twice:
     name: Test deploying multiple times in one job
     runs-on: ubuntu-latest    
@@ -91,6 +92,7 @@ jobs:
         BRANCH: branch-d
         FOLDER: dummy2
         SSH_PRIVATE_KEY: ${{ secrets.TESTING_PRIVATE_KEY }}
+    - run: cat ~/.ssh/known_hosts
   deploy-locally:
     name: Test deploying to another branch of same repo
     runs-on: ubuntu-latest
@@ -107,3 +109,4 @@ jobs:
         BRANCH: test-branch
         FOLDER: dummy
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - run: cat ~/.ssh/known_hosts
